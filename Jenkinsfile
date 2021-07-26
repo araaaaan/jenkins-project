@@ -1,20 +1,27 @@
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            alwaysPull True
+            image 'python:3.8'
+        }
+    }
+    
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+        stage('1. Environment Setup') {
+            steps { 
+                echo "=============="
+                }
+                stage('Build-test-2') {
+                    steps{ build 'Build-test-2' }
+                }
+                stage('Build-test-3') {
+                    steps{ build 'Build-test-3' }
+                }
             }
         }
-        stage('Test') {
+        stage('Build-test-4') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                build 'Build-test-4'
             }
         }
     }
