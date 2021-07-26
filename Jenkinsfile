@@ -1,11 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            alwaysPull True
-            image 'python:3.8'
-        }
-    }
-    
+    agent none
     stages {
         stage('1. Environment Setup') {
             steps { 
