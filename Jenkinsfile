@@ -17,11 +17,8 @@ pipeline {
                 stage('Build-test-3') {
                     steps{ build 'Build-test-3' }
                 }
-            }
-        }
-        stage('Build-test-4') {
-            steps {
-                build 'Build-test-4'
-            }
+                stage('Build-test-4') {
+                    steps { build 'Build-test-4'}
         }
     }
+}
